@@ -1,13 +1,13 @@
-package com.practo.practo;
+package com.practo.healthcare;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class PractoApplication {
+public class PractoHealthcareApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(PractoApplication.class, args);
+		SpringApplication.run(PractoHealthcareApplication.class, args);
 	}
 
 }
