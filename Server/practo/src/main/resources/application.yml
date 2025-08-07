@@ -1,0 +1,37 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/practo_healthcare
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:Ugam@123}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+
+  profiles:
+    active: dev
+
+
+jwt:
+  secret: ${JWT_SECRET:d9e3c346072228792751a7cc98edce448e7d2a0c50da3a042fea4395f6f93fa5}
+  expiration: 86400000 # 24 hours
+
+app:
+  cors:
+    allowed-origins: ${CORS_ORIGINS:http://localhost:3000,http://localhost:3001}
+
+logging:
+  level:
+    com.practo.healthcare: DEBUG
+    org.springframework.security: DEBUG
