@@ -6,8 +6,8 @@ const SearchContext = createContext()
 
 export function SearchProvider({ children }) {
   const [searchData, setSearchData] = useState({
-    location: 'Bangalore',
-    specialty: 'Dermatologist',
+    location: '',
+    specialty: '',
     results: 29,
     filters: {
       gender: '',

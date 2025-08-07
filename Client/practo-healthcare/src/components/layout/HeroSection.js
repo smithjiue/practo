@@ -51,11 +51,10 @@ export default function HeroSection() {
 
           {/* Search Section */}
           <div className="max-w-4xl mx-auto">
+            <h2 className="text-2xl font-semibold text-white mb-6 text-center">
+              Find and Book
+            </h2>
             <div className="bg-white rounded-lg shadow-lg p-6">
-              <h2 className="text-2xl font-semibold text-gray-800 mb-6 text-center">
-                Find and Book
-              </h2>
-
               <div className="flex flex-col md:flex-row gap-4">
                 {/* Location Input */}
                 <div className="flex-1 relative">
@@ -90,32 +89,29 @@ export default function HeroSection() {
                   Search
                 </Button>
               </div>
-
-              {/* Popular Searches */}
-              <div className="mt-6">
-                <p className="text-gray-600 mb-3">Popular searches:</p>
-                <div className="flex flex-wrap gap-2">
-                  {popularSearches.map(search => (
-                    <Button
-                      key={search}
-                      variant="outline"
-                      size="sm"
-                      onClick={() => {
-                        setSpecialty(search)
-                        updateSearch({
-                          location,
-                          specialty: search,
-                          results: Math.floor(Math.random() * 50) + 20,
-                        })
-                        router.push('/doctors')
-                      }}
-                      className="text-blue-600 border-blue-200 hover:bg-blue-50"
-                    >
-                      {search}
-                    </Button>
-                  ))}
-                </div>
-              </div>
+            </div>
+            {/* Popular Searches */}
+            <div className="mt-6 flex flex-wrap gap-2">
+              <p className="text-gray-400 px-3">Popular searches:</p>
+              {popularSearches.map(search => (
+                <Button
+                  key={search}
+                  variant="link"
+                  size="sm"
+                  onClick={() => {
+                    setSpecialty(search)
+                    updateSearch({
+                      location,
+                      specialty: search,
+                      results: Math.floor(Math.random() * 50) + 20,
+                    })
+                    router.push('/doctors')
+                  }}
+                  className="text-gray-400 border-blue-200 "
+                >
+                  {search}
+                </Button>
+              ))}
             </div>
           </div>
         </div>
