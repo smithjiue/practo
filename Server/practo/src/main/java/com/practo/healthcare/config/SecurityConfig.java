@@ -27,10 +27,11 @@ import java.util.Arrays;
 @EnableMethodSecurity
 public class SecurityConfig {
 
+
     @Autowired
     private JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
 
-    @Autowired
+   @Autowired
     private JwtAuthenticationFilter jwtAuthenticationFilter;
 
     @Bean

@@ -2,6 +2,7 @@ package com.practo.healthcare.repository;
 
 import com.practo.healthcare.model.Doctor;
 import com.practo.healthcare.model.Gender;
+import com.practo.healthcare.model.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -10,6 +11,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.math.BigDecimal;
+import java.util.Optional;
 
 @Repository
 public interface DoctorRepository extends JpaRepository<Doctor, Long> {
@@ -34,4 +36,6 @@ public interface DoctorRepository extends JpaRepository<Doctor, Long> {
 
     @Query("SELECT DISTINCT d.specialization FROM Doctor d WHERE d.isActive = true ORDER BY d.specialization")
     java.util.List<String> findAllSpecializations();
+
+    Optional<Doctor> findByUser(User user);
 }
