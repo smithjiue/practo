@@ -1,8 +1,12 @@
-import { Inter } from 'next/font/google'
+import { Lato } from 'next/font/google'
 import './globals.css'
 import { SearchProvider } from '@/context/SearchContext'
 
-const inter = Inter({ subsets: ['latin'] })
+const lato = Lato({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  variable: '--font-lato',
+})
 
 export const metadata = {
   title: 'Practo - Your home for health',
@@ -12,7 +16,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={lato.className}>
         <SearchProvider>{children}</SearchProvider>
       </body>
     </html>

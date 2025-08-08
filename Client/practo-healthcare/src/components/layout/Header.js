@@ -122,6 +122,7 @@ export default function Header() {
           </div>
         )}
       </div>
+      <div className="bg-gray-200 p-4"></div>
     </header>
   )
 }
