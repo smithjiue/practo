@@ -6,65 +6,43 @@ import {
   FileText,
   TestTube,
   BookOpen,
-  Users,
+  Briefcase,
 } from 'lucide-react'
-import { Button } from '@/components/ui/button'
 
 export default function ServicesSection() {
   const services = [
-    {
-      icon: MessageCircle,
-      title: 'Consult with a doctor',
-    },
-    {
-      icon: ShoppingCart,
-      title: 'Order Medicines',
-    },
-    {
-      icon: FileText,
-      title: 'View medical records',
-    },
-    {
-      icon: TestTube,
-      title: 'Book test',
-      badge: 'New',
-    },
-    {
-      icon: BookOpen,
-      title: 'Read articles',
-    },
-    {
-      icon: Users,
-      title: 'For healthcare providers',
-    },
+    { icon: MessageCircle, title: 'Consult with a doctor' },
+    { icon: ShoppingCart, title: 'Order Medicines' },
+    { icon: FileText, title: 'View medical records' },
+    { icon: TestTube, title: 'Book test', badge: 'New' },
+    { icon: BookOpen, title: 'Read articles' },
+    { icon: Briefcase, title: 'For healthcare providers' },
   ]
 
   return (
-    <div className="bg-blue-500 p-2 z-10">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 items-center justify-items-center-safe">
-          {services.map((service, index) => {
-            const Icon = service.icon
-            return (
-              <div
-                key={index}
-                className=" rounded-lg text-center hover:shadow-lg transition-shadow cursor-pointer group"
-              >
-                <div className="relative inline-block">
-                  <div className="w-16 h-16  rounded-lg flex items-center justify-center  mb-4 group-hover:bg-blue-200 transition-colors">
-                    <Icon className="h-8 w-8 text-white" />
-                  </div>
-                  {service.badge && (
-                    <span className="absolute -top-2 -right-2 bg-green-500 text-white text-xs px-2 py-1 rounded-full">
-                      {service.badge}
-                    </span>
-                  )}
-                </div>
-                <h3 className="font-medium text-white mb-2">{service.title}</h3>
+    <div className="bg-[#1a237e] relative z-[10]">
+      <div className="container mx-auto flex justify-center items-center py-6 divide-x divide-gray-400/40">
+        {services.map((service, index) => {
+          const Icon = service.icon
+          return (
+            <div
+              key={index}
+              className="flex flex-col items-center px-6 cursor-pointer group"
+            >
+              <div className="relative flex items-center justify-center mb-2 ">
+                <Icon className="h-6 w-6 text-white hover:animate-out" />
+                {service.badge && (
+                  <span className="absolute -top-3 -right-6 bg-green-500 text-white text-[10px] font-semibold px-1.5 py-0.5 rounded">
+                    {service.badge}
+                  </span>
+                )}
               </div>
-            )
-          })}
-        </div>
+              <span className="text-sm text-gray-500 whitespace-nowrap hover:text-white">
+                {service.title}
+              </span>
+            </div>
+          )
+        })}
       </div>
     </div>
   )

@@ -6,7 +6,7 @@ import ServicesSection from '@/components/layout/ServicesSection'
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="container bg-white">
       <Header />
       <HeroSection />
     </div>

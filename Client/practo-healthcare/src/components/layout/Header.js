@@ -21,15 +21,14 @@ export default function Header() {
   ]
 
   return (
-    <header className="bg-white shadow-sm sticky top-0 z-50">
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
+    <header className="bg-white shadow-sm sticky top-0 z-50 ">
+      <div className="container mx-auto px-12">
+        <div className="flex items-center justify-between h-16 ">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">P</span>
-            </div>
-            <span className="text-xl font-semibold text-gray-800">practo</span>
+            <span className="inline-block w-2 h-2 m-0 p-0 mt-2 bg-blue-500 rounded-full"></span>
+            <span className="text-4xl font-bold text-blue-900 m-0">practo</span>
+            <span className="inline-block w-2 h-2 m-0 p-0 mt-2 bg-blue-500 rounded-full"></span>
           </Link>
 
           {/* Desktop Navigation */}

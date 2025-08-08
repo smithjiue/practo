@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
 import { Search } from 'lucide-react'
+import { useSearch } from '@/context/SearchContext'
 
 const specialtiesList = [
   'Dentist',
@@ -12,14 +13,12 @@ const specialtiesList = [
   // Add more specialties here...
 ]
 
-export default function SpecialitySelect({
-  specialty,
-  setSpecialty,
-  handleSearch,
-}) {
+export default function SpecialitySelect({ handleSearch }) {
   const [open, setOpen] = useState(false)
   const wrapperRef = useRef(null)
 
+  const [specialty, setSpecialty] = useState('')
+  const { updateSearch } = useSearch()
   const query = specialty
   const filteredSpecialties =
     query === ''
@@ -29,7 +28,9 @@ export default function SpecialitySelect({
         )
 
   const handleSelect = item => {
-    setSpecialty(item)
+    updateSearch({
+      specialty: specialty || 'Dermatologist',
+    })
     setOpen(false)
     handleSearch?.()
   }
@@ -48,12 +49,12 @@ export default function SpecialitySelect({
   }, [])
 
   return (
-    <div className=" flex-1 relative" ref={wrapperRef}>
+    <div className=" flex-1 relative z-[9999]" ref={wrapperRef}>
       <Search className="absolute left-3 top-3 h-5 w-5 text-gray-400 pointer-events-none " />
       <input
         type="text"
         placeholder="Search doctors by speciality..."
-        value={query}
+        value={specialty}
         onFocus={() => setOpen(true)}
         onChange={e => {
           setSpecialty(e.target.value)
