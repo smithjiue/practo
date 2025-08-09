@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react'
 import { Search } from 'lucide-react'
 
 const specialtiesList = [
+  'Cardiologist',
   'Dentist',
   'Gynecologist/obstetrician',
   'General Physician',

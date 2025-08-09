@@ -10,25 +10,47 @@ import SpecialitySelect from './SearchSection'
 import Bg_Banner from './Bg_Banner'
 import ServicesSection from './ServicesSection'
 
+const apiUrl = 'http://localhost:8080/api/doctors/search'
+
 export default function HeroSection() {
   const router = useRouter()
-  const { updateSearch } = useSearch()
-  const [location, setLocation] = useState('')
+  const { updateSearch, updateDoctors } = useSearch()
+  const [location, setLocation] = useState('Mumbai')
   const [specialty, setSpecialty] = useState('')
 
   const popularSearches = [
+    'Cardiologist',
     'Dermatologist',
     'Pediatrician',
     'Gynecologist/Obstetrician',
     'Orthopedist',
   ]
 
-  const handleSearch = () => {
-    updateSearch({
-      location,
-      specialty: specialty || 'Dermatologist',
-      results: Math.floor(Math.random() * 50) + 20,
-    })
+  const handleSearch = async () => {
+    // updateSearch({
+    //   location,
+    //   specialty: specialty || 'Dermatologist',
+    //   results: Math.floor(Math.random() * 50) + 20,
+    // })
+    const response = await fetch(
+      `${apiUrl}?city=${location}&specialization=${specialty}&gender=ANY&minExperience=0&minRating=0&isAvailableToday=true&sortBy=rating&sortDirection=desc&page=0&size=10`,
+      {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+    )
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`)
+    }
+
+    const data = await response.json()
+
+    // Extract doctors list from "content"
+    const doctors = data.content
+    updateDoctors(doctors)
+
     router.push('/doctors')
   }
 
@@ -105,9 +127,9 @@ export default function HeroSection() {
               </div>
             </div>
           </div>
+          <ServicesSection />
         </div>
       </div>
-      <ServicesSection />
     </div>
   )
 }

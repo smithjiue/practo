@@ -16,9 +16,13 @@ export function SearchProvider({ children }) {
       sortBy: 'Relevance',
     },
   })
+  const [doctors, setDoctors] = useState([])
 
   const updateSearch = newData => {
     setSearchData(prev => ({ ...prev, ...newData }))
+  }
+  const updateDoctors = data => {
+    setDoctors(data)
   }
 
   const updateFilters = newFilters => {
@@ -29,7 +33,15 @@ export function SearchProvider({ children }) {
   }
 
   return (
-    <SearchContext.Provider value={{ searchData, updateSearch, updateFilters }}>
+    <SearchContext.Provider
+      value={{
+        searchData,
+        updateSearch,
+        updateFilters,
+        updateDoctors,
+        doctors,
+      }}
+    >
       {children}
     </SearchContext.Provider>
   )

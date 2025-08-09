@@ -55,7 +55,7 @@ export default function DoctorCard({ doctor }) {
 
           <div className="flex-1">
             <h3 className="text-lg font-semibold text-blue-600 hover:underline cursor-pointer">
-              {doctor.name}
+              {doctor.firstName} {doctor.lastName}
             </h3>
             {doctor.specialty && (
               <p className="text-gray-500 text-sm">{doctor.specialty}</p>
@@ -67,7 +67,7 @@ export default function DoctorCard({ doctor }) {
 
             <div className="flex items-center gap-1 text-sm mt-1">
               <MapPin className="h-4 w-4" />
-              <span className="font-bold text-black">{doctor.location}</span>
+              <span className="font-bold text-black">{doctor.city}</span>
               {doctor.type === 'clinic' ? (
                 ''
               ) : (
@@ -80,7 +80,7 @@ export default function DoctorCard({ doctor }) {
             </div>
 
             <p className="font-medium text-gray-800 mt-2">
-              ₹{doctor.fee} Consultation{' '}
+              ₹{doctor.consultationFee} Consultation{' '}
               {doctor.type === 'clinic' ? 'Fees' : 'fee at clinic'}
             </p>
             <hr className="border-t border-dotted border-gray-300 my-4" />
@@ -107,7 +107,7 @@ export default function DoctorCard({ doctor }) {
 
         {/* Action Buttons */}
         <div className="flex flex-col gap-2">
-          {doctor.availableToday && (
+          {doctor.isAvailableToday && (
             <div className="flex items-center justify-center gap-2 text-green-600 text-sm mb-2">
               <div className="">
                 <Calendar />
