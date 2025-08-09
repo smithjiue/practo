@@ -29,7 +29,6 @@ export default function ServicesSection() {
               key={index}
               className="flex flex-col items-center px-6 cursor-pointer group"
             >
-<<<<<<< HEAD
               <div className="relative flex items-center justify-center mb-2 ">
                 <Icon className="h-6 w-6 text-white hover:animate-out" />
                 {service.badge && (
