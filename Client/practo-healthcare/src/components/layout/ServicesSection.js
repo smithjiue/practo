@@ -32,10 +32,6 @@ export default function ServicesSection() {
 <<<<<<< HEAD
               <div className="relative flex items-center justify-center mb-2 ">
                 <Icon className="h-6 w-6 text-white hover:animate-out" />
-=======
-              <div className="relative flex items-center justify-center mb-2">
-                <Icon className="h-6 w-6 text-white" />
->>>>>>> client-dev
                 {service.badge && (
                   <span className="absolute -top-3 -right-6 bg-green-500 text-white text-[10px] font-semibold px-1.5 py-0.5 rounded">
                     {service.badge}
