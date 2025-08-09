@@ -3,6 +3,7 @@ import { Search } from 'lucide-react'
 import { useSearch } from '@/context/SearchContext'
 
 const specialtiesList = [
+  'Cardiologist',
   'Dentist',
   'Gynecologist/obstetrician',
   'General Physician',
