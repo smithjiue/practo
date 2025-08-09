@@ -31,7 +31,7 @@ export default function HeroSection() {
   //   })
   const handleSearch = async () => {
     const response = await fetch(
-      `${apiUrl}?city=${location}&specialization=${searchData.specialty}&gender=ANY&minExperience=0&minRating=0&isAvailableToday=true&sortBy=rating&sortDirection=desc&page=0&size=10`,
+      `${apiUrl}?city=${searchData.location}&specialization=${searchData.specialty}&gender=ANY&minExperience=0&minRating=0&isAvailableToday=true&sortBy=rating&sortDirection=desc&page=0&size=10`,
       {
         method: 'GET',
         headers: {
@@ -47,7 +47,9 @@ export default function HeroSection() {
 
     // Extract doctors list from "content"
     const doctors = data.content
+    console.log(doctors)
     updateSearch({
+      location: location,
       results: doctors.length,
     })
     updateDoctors(doctors)
