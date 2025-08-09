@@ -37,7 +37,7 @@ export default function ServicesSection() {
                   </span>
                 )}
               </div>
-              <span className="text-sm text-gray-500 whitespace-nowrap hover:text-white">
+              <span className="text-sm text-gray-400 whitespace-nowrap hover:text-white">
                 {service.title}
               </span>
             </div>

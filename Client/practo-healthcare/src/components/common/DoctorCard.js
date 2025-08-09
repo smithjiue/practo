@@ -126,9 +126,9 @@ export default function DoctorCard({ doctor }) {
             <div>
               <button className="flex flex-col bg-blue-500 hover:bg-blue-600 text-white px-8 rounded-sm shadow-xs text-sm font-medium">
                 Book Clinic Visit
-                {doctor.noBookingFee && (
-                  <div className="text-xs">No Booking Fee</div>
-                )}
+                {/* {doctor.noBookingFee && ( */}
+                <div className="text-xs">No Booking Fee</div>
+                {/* )} */}
               </button>
             </div>
           )}

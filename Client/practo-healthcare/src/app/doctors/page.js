@@ -7,7 +7,6 @@ import { useSearch } from '@/context/SearchContext'
 
 export default function DoctorsPage() {
   const { searchData } = useSearch()
-
   return (
     <div className="min-h-screen bg-gray-50">
       <Header />

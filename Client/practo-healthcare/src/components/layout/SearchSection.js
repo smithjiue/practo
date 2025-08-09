@@ -19,8 +19,8 @@ export default function SpecialitySelect({ handleSearch }) {
   const wrapperRef = useRef(null)
 
   const [specialty, setSpecialty] = useState('')
-  const { updateSearch } = useSearch()
-  const query = specialty
+  const { updateSearch, searchData } = useSearch()
+  const query = specialty || ''
   const filteredSpecialties =
     query === ''
       ? specialtiesList
@@ -30,8 +30,9 @@ export default function SpecialitySelect({ handleSearch }) {
 
   const handleSelect = item => {
     updateSearch({
-      specialty: specialty || 'Dermatologist',
+      specialty: item,
     })
+    console.log(searchData)
     setOpen(false)
     handleSearch?.()
   }
@@ -59,6 +60,10 @@ export default function SpecialitySelect({ handleSearch }) {
         onFocus={() => setOpen(true)}
         onChange={e => {
           setSpecialty(e.target.value)
+          updateSearch({
+            specialty: e.target.value,
+          })
+          console.log(searchData)
           setOpen(true)
         }}
         className="pl-10 h-12 w-full border border-gray-300 focus:outline-none"
